@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { TaskComponent } from './pages/task/task.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TaskComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, TasksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

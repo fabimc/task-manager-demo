@@ -6,12 +6,12 @@ const getTask = async (id) =>
 const getTasks = async () =>
   await Task.findAll()
 
-  const createTask = async (title) => {
-    return await Task.create({ title, completed: false })
+  const createTask = async (text) => {
+    return await Task.create({ text, completed: false })
   }
 
-  const updateTask = async (task, title, completed) => {
-    return await task.update({ title, completed })
+  const updateTask = async (task, text, completed) => {
+    return await task.update({ text, completed })
   }
   
   const deleteTask = async (task) => {

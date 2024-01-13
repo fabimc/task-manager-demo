@@ -3,7 +3,7 @@ const { Sequelize, sequelize } = require('../core/database')
 class Task extends Sequelize.Model {}
 Task.init(
   {
-    title: {
+    text: {
       type: Sequelize.TEXT('medium'),
       allowNull: false
     },

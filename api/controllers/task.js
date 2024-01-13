@@ -18,11 +18,11 @@ const getTasks = async (req, res) => {
 }
 
 const createTask = async (req, res) => {
-  const { title } = req.body
+  const { text } = req.body
 
   let task = null
   try {
-    task = await taskService.createTask(title)
+    task = await taskService.createTask(text)
   } catch (error) {
     return res.status(422).json(error)
   }
@@ -32,7 +32,7 @@ const createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   const { id } = req.params
-  const { title, completed } = req.body
+  const { text, completed } = req.body
 
   const task = await taskService.getTask(id)
 
@@ -40,7 +40,7 @@ const updateTask = async (req, res) => {
 
   let updatedTask = null
   try {
-    updatedTask = await taskService.updateTask(task, title, completed)
+    updatedTask = await taskService.updateTask(task, text, completed)
   } catch (error) {
     return res.status(422).json(error)
   }

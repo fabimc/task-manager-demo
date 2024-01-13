@@ -11,17 +11,17 @@ async function seed() {
   await Promise.all([
     Task.create({
       id: 1,
-      title: 'do interview',
+      text: 'do interview',
       completed: false
     }),
     Task.create({
       id: 2,
-      title: 'create task manager',
+      text: 'create task manager',
       completed: false
     }),
     Task.create({
       id: 3,
-      title: 'profit!',
+      text: 'profit!',
       completed: false
     })
   ])
