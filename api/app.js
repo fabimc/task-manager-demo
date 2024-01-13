@@ -1,6 +1,7 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const { listRouter, taskRouter } = require('./routes')
 
 const app = express()
 app.use(bodyParser.json())
@@ -14,6 +15,8 @@ app.get('/health', (req, res) => {
 })
 
 // Api routes
+app.use('/api/lists', listRouter)
+app.use('/api/tasks', taskRouter)
 
 // UI routes
 

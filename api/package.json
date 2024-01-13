@@ -4,6 +4,7 @@
   "description": "api for task manager",
   "main": "server.js",
   "scripts": {
+    "seed": "node ./scripts/seedDb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fabimc",

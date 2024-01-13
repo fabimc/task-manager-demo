@@ -6,6 +6,10 @@ Task.init(
     title: {
       type: Sequelize.TEXT('medium'),
       allowNull: false
+    },
+    completed: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     }
   },
   {
