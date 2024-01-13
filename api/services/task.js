@@ -3,24 +3,14 @@ const { Task } = require('../models')
 const getTask = async (id) =>
   await Task.findByPk(id)
 
-const getTasks = async (listId) =>
-  await Task.findAll({
-    where: {
-      ListId: listId
-    }
-  })
+const getTasks = async () =>
+  await Task.findAll()
 
-  const createTask = async (title, listId) => {
-    console.log('creating title', title)
-    console.log('creating listId', listId)
-    return await Task.create({ title, completed: false, ListId: listId })
+  const createTask = async (title) => {
+    return await Task.create({ title, completed: false })
   }
 
   const updateTask = async (task, title, completed) => {
-    console.log('task', task)
-    console.log('title', title)
-    console.log('completed', completed)
-
     return await task.update({ title, completed })
   }
   

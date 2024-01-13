@@ -3,6 +3,7 @@ const { taskController } = require('../controllers')
 
 const router = express.Router()
 
+router.get('/', taskController.getTasks)
 router.get('/:id', taskController.getTask)
 router.post('/', taskController.createTask)
 router.put('/:id', taskController.updateTask)

@@ -77,6 +77,30 @@
           </div>
         </div>
 
+        <div class="task completed">
+          <div class="task-text">
+            <!-- <p>{{ task.title }}</p> -->
+            <p> task titlec completed </p>
+          </div>
+          <div class="task-buttons">
+
+            <!-- <button class="button" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]"> -->
+            <button class="button">
+              <div class="icon">
+                <i class="fas fa-edit"></i>
+              </div>
+            </button>
+
+            <!-- <button class="button is-danger" (click)="onDeleteTaskClick(task._id)" style="margin-left: 10px;"> -->
+            <button class="button">
+              <div class="icon">
+                <i class="fas fa-trash"></i>
+              </div>
+            </button>
+
+          </div>
+        </div>
+
         <!-- <h3 class="empty-state-text" *ngIf="tasks.length === 0"> -->
         <h3 class="empty-state-text">
           There are no tasks here! Click the add button to create
