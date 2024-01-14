@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { Task } from '../../../core/interfaces/task.interface';
+import { Task } from '../../../shared/interfaces/task.interface';
 @Component({
   selector: 'app-task-item',
   standalone: true,

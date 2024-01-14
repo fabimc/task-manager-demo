@@ -18,11 +18,11 @@ const getTasks = async (req, res) => {
 }
 
 const createTask = async (req, res) => {
-  const { text } = req.body
+  const { text, completed } = req.body
 
   let task = null
   try {
-    task = await taskService.createTask(text)
+    task = await taskService.createTask(text, completed || false)
   } catch (error) {
     return res.status(422).json(error)
   }
