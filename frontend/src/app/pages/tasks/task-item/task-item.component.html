@@ -1,15 +1,20 @@
 <div
   [ngClass]="{ completed: task.completed }"
   class="task"
-  (click)="onComplete(task)"
 >
-  <h3>
-    {{ task.text }}
-    <fa-icon
-      (click)="onDelete(task)"
-      [ngStyle]="{ color: 'red' }"
-      [icon]="faTimes"
-    ></fa-icon>
-  </h3>
-  
+  <div class="item">
+    <div class="title" (click)="onComplete(task)">{{ task.text }}</div>
+    <div class="actions">
+      <fa-icon
+        (click)="onDelete(task)"
+        [ngStyle]="{ color: 'orange', marginRight: '1rem' }"
+        [icon]="faEdit"
+      ></fa-icon>
+      <fa-icon
+        (click)="onDelete(task)"
+        [ngStyle]="{ color: 'red' }"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+  </div>
 </div>

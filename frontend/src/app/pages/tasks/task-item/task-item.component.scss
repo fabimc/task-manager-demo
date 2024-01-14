@@ -25,9 +25,16 @@
   border-left: 5px solid green;
 }
 
+.task .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .title {
+    flex: 1;
+  }
+}
 
-
-.task h3 {
+.task .actions {
   display: flex;
   align-items: center;
   justify-content: space-between;

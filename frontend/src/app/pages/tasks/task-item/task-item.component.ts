@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Task } from '../../../core/interfaces/task.interface';
 @Component({
   selector: 'app-task-item',
@@ -15,6 +16,7 @@ export class TaskItemComponent {
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() onCompleteTask: EventEmitter<Task> = new EventEmitter();
   faTimes = faTimes;
+  faEdit = faEdit;
 
   constructor() {}
 
