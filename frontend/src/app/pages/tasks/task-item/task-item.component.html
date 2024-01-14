@@ -1,1 +1,15 @@
-<p>task-item works!</p>
+<div
+  [ngClass]="{ completed: task.completed }"
+  class="task"
+  (click)="onComplete(task)"
+>
+  <h3>
+    {{ task.text }}
+    <fa-icon
+      (click)="onDelete(task)"
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+    ></fa-icon>
+  </h3>
+  
+</div>
