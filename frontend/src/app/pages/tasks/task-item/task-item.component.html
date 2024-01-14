@@ -6,7 +6,7 @@
     <div class="title" (click)="onComplete(task)">{{ task.text }}</div>
     <div class="actions">
       <fa-icon
-        (click)="onDelete(task)"
+        (click)="onComplete(task)"
         [ngStyle]="{ color: 'orange', marginRight: '1rem' }"
         [icon]="faEdit"
       ></fa-icon>

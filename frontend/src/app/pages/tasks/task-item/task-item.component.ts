@@ -15,6 +15,7 @@ export class TaskItemComponent {
   @Input() task!: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() onCompleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onUpdateTask: EventEmitter<Task> = new EventEmitter();
   faTimes = faTimes;
   faEdit = faEdit;
 
@@ -28,5 +29,9 @@ export class TaskItemComponent {
 
   onComplete(task: Task) {
     this.onCompleteTask.emit(task);
+  }
+
+  onUpdate(task: Task) {
+    this.onUpdateTask.emit(task);
   }
 }

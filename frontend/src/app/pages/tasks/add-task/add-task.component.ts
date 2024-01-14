@@ -10,7 +10,7 @@ import { Task } from '../../../shared/interfaces/task.interface';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.scss'
+  styleUrl: './add-task.component.scss',
 })
 export class AddTaskComponent {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
@@ -26,15 +26,11 @@ export class AddTaskComponent {
   }
 
   ngOnInit(): void {}
-  
-   ngOnDestroy() {
-        // Unsubscribe to ensure no memory leaks
-        this.subscription.unsubscribe();
-    }
+
+  ngOnDestroy() {}
 
   onSubmit() {
     if (!this.text) {
-      //alert('Please add a task!');
       return;
     }
 
@@ -48,5 +44,4 @@ export class AddTaskComponent {
     this.text = '';
     this.completed = false;
   }
-
 }
