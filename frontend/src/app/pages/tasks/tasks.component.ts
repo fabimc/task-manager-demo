@@ -29,23 +29,32 @@ export class TasksComponent {
   deleteTask(task: Task) {
     this.taskService.deleteTask(task).subscribe(() => {
       this.tasks$ = this.tasks$.pipe(
-        map((tasks) => tasks.filter((t) => t.id !== task.id))
+        map((tasks) => tasks.filter((t) => t.id !== task.id)),
+        catchError((error) => [error])
       );
     });
   }
 
   completeTask(task: Task) {
-    this.taskService.updateTask({ ...task, completed: !task.completed}).subscribe(() => {
-      this.tasks$ = this.tasks$.pipe(
-        map((tasks) => tasks.map((t) => t.id === task.id ? { ...task, completed: !task.completed } : t)
-      ));
-    });
+    this.taskService
+      .updateTask({ ...task, completed: !task.completed })
+      .subscribe(() => {
+        this.tasks$ = this.tasks$.pipe(
+          map((tasks) =>
+            tasks.map((t) =>
+              t.id === task.id ? { ...task, completed: !task.completed } : t
+            )
+          ),
+          catchError((error) => [error])
+        );
+      });
   }
 
   addTask(task: Task) {
-    this.taskService.addTask(task).subscribe((task) => {
+    this.taskService.addTask(task).subscribe((_task) => {
       this.tasks$ = this.tasks$.pipe(
-        map((tasks) => [...tasks])
+        map((tasks) => [...tasks]),
+        catchError((error) => [error])
       );
     });
   }
@@ -53,15 +62,22 @@ export class TasksComponent {
   updateTask(task: Task) {
     this.taskService.updateTask(task).subscribe(() => {
       this.tasks$ = this.tasks$.pipe(
-        map((tasks) => tasks.map((t) => t.id === task.id ? { ...task, text: task.text, editing: false } : t)
-      ));
+        map((tasks) =>
+          tasks.map((t) =>
+            t.id === task.id ? { ...task, text: task.text, editing: false } : t
+          )
+        ),
+        catchError((error) => [error])
+      );
     });
   }
 
   cancelUpdateTask(task: Task) {
     this.tasks$ = this.tasks$.pipe(
-      map((tasks) => tasks.map((t) => t.id === task.id ? { ...t, editing: false } : t)
-    ));
+      map((tasks) =>
+        tasks.map((t) => (t.id === task.id ? { ...t, editing: false } : t))
+      ),
+      catchError((error) => [error])
+    );
   }
-
 }
