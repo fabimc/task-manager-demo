@@ -32,10 +32,14 @@
   .title {
     flex: 1;
   }
+  input.title {
+    width: 100%;
+  }
 }
 
 .task .actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }

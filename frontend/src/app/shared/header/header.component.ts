@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from '../../core/services/ui/ui.service';
-import { Subscription } from 'rxjs';  
+import { Subscription } from 'rxjs';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
@@ -22,11 +22,11 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {}
-  
-   ngOnDestroy() {
-     // Unsubscribe to ensure no memory leaks
-     this.subscription.unsubscribe();
-   }
+
+  ngOnDestroy() {
+    // Unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
 
   toggleAddTask() {
     this.uiService.toggleAddTask();

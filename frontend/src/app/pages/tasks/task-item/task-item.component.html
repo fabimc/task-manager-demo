@@ -1,20 +1,46 @@
-<div
-  [ngClass]="{ completed: task.completed }"
-  class="task"
->
+<div [ngClass]="{ completed: task.completed }" class="task">
   <div class="item">
-    <div class="title" (click)="onComplete(task)">{{ task.text }}</div>
+    <div *ngIf="!task.editing" class="title" (click)="onComplete(task)">
+      {{ task.text }}
+    </div>
+    <div *ngIf="task.editing" class="title">
+      <input
+      class="title"
+      [(ngModel)]="task.text"
+      (keyup.enter)="onUpdate(task)"
+    />
+    </div>
     <div class="actions">
       <fa-icon
-        (click)="onComplete(task)"
-        [ngStyle]="{ color: 'orange', marginRight: '1rem' }"
+        *ngIf="!task.editing"
+        (click)="onEdit(task)"
+        [ngStyle]="{ color: 'orange', padding: '0 1rem' }"
         [icon]="faEdit"
       ></fa-icon>
+
       <fa-icon
+        *ngIf="!task.editing"
         (click)="onDelete(task)"
-        [ngStyle]="{ color: 'red' }"
-        [icon]="faTimes"
+        [ngStyle]="{ color: 'red', padding: '0 1rem' }"
+        [icon]="faTrash"
       ></fa-icon>
+
+      <fa-icon
+        *ngIf="task.editing"
+        (click)="onUpdate(task)"
+        [ngStyle]="{ color: 'green', padding: '0 1rem' }"
+        [icon]="faCheck"
+      >
+      </fa-icon>
+
+      <fa-icon
+        *ngIf="task.editing"
+        [ngStyle]="{ color: 'gray', padding: '0 1rem' }"
+        [icon]="faTimes"
+        (click)="onCancelUpdate(task)"
+      >
+      </fa-icon>
+
     </div>
   </div>
 </div>

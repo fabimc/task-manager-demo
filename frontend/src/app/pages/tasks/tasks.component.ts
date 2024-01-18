@@ -27,7 +27,7 @@ export class TasksComponent {
   }
 
   deleteTask(task: Task) {
-    this.taskService.deleteTask(task.id || 0).subscribe(() => {
+    this.taskService.deleteTask(task).subscribe(() => {
       this.tasks$ = this.tasks$.pipe(
         map((tasks) => tasks.filter((t) => t.id !== task.id))
       );
@@ -48,6 +48,20 @@ export class TasksComponent {
         map((tasks) => [...tasks])
       );
     });
+  }
+
+  updateTask(task: Task) {
+    this.taskService.updateTask(task).subscribe(() => {
+      this.tasks$ = this.tasks$.pipe(
+        map((tasks) => tasks.map((t) => t.id === task.id ? { ...task, text: task.text, editing: false } : t)
+      ));
+    });
+  }
+
+  cancelUpdateTask(task: Task) {
+    this.tasks$ = this.tasks$.pipe(
+      map((tasks) => tasks.map((t) => t.id === task.id ? { ...t, editing: false } : t)
+    ));
   }
 
 }
